@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/student-male.png">
+    <title>Enroll Now | GyanKunj Academy</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0B7A55;
+            --primary-light: #00C896;
+            --gradient: linear-gradient(135deg, #00C896 0%, #0B7A55 100%);
+            --bg-light: #F9FCFA;
+            --card-bg: #ffffff;
+            --text-dark: #1E1E1E;
+            --text-light: #4A4A4A;
+            --shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+            --border-light: #E6EDE8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .enroll-container {
+            max-width: 680px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 40px;
+            box-shadow: var(--shadow);
+            padding: 40px 36px;
+            border: 1px solid var(--border-light);
+            transition: all 0.2s;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .header p {
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 1rem;
+            border: 1.5px solid var(--border-light);
+            border-radius: 20px;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            outline: none;
+            transition: border 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--primary);
+        }
+
+        .double-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 500px) {
+            .double-row {
+                grid-template-columns: 1fr;
+            }
+
+            .enroll-container {
+                padding: 28px 20px;
+            }
+        }
+
+        .btn-submit {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 60px;
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 12px 24px rgba(11, 122, 85, 0.25);
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 30px rgba(11, 122, 85, 0.3);
+        }
+
+        .success-message {
+            background: #e0ffe8;
+            color: #0B7A55;
+            padding: 16px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 24px;
+            display: none;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .back-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .loading-spinner {
+            display: none;
+            margin-left: 12px;
+        }
+
+        .note {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="enroll-container">
+        <div class="header">
+            <h1>📝 Enroll Now</h1>
+            <p>Secure your seat at GyanKunj Academy</p>
+        </div>
+
+        <form id="enrollmentForm">
+            <div class="form-group">
+                <label><i class="fas fa-user"></i> Full Name *</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="double-row">
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email *</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-phone-alt"></i> Phone *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 1234567890" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fab fa-whatsapp"></i> WhatsApp Number (optional)</label>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="Same as phone or different">
+            </div>
+
+            <div class="double-row">
+                <div class="form-group">
+                    <label><i class="fas fa-book-open"></i> Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="" disabled selected>-- Select Subject --</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Maths">Maths</option>
+                        <option value="Biology">Biology</option>
+                        <option value="JEE Mains/Advanced">JEE Mains/Advanced</option>
+                        <option value="NEET Preparation">NEET Preparation</option>
+                        <option value="Commerce">Commerce & C.A Foundation</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Computer Class 5-12">Computer Class (5 to 12)</option>
+                        <option value="Coding Programming">Coding / Programming</option>
+                        <option value="Website Development">Website Development</option>
+                        <option value="Foundation 11th & 12th">Foundation Class 11th & 12th</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-users"></i> Batch Mode *</label>
+                    <select id="batch" name="batch" required>
+                        <option value="" disabled selected>-- Select --</option>
+                        <option value="Offline">Offline (Classroom)</option>
+                        <option value="Online">Online (Live Classes)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">
+                <span>Submit Enrollment</span>
+                <i class="fas fa-spinner fa-spin loading-spinner" id="spinner"></i>
+            </button>
+
+            <div class="success-message" id="successMsg">
+                <i class="fas fa-check-circle"></i> We'll shortly connect with you! 🎉
+            </div>
+        </form>
+
+        <div class="back-link">
+            <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+        <div class="note">
+            * All fields are required unless marked optional.
+        </div>
+    </div>
+
+    <script>
+        // ✅ Updated with your Google Apps Script deployment URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyK-IbZnzOhr3J6FVTy_VLPpILH87Xi4wZ3SFblsIeswxtgKKeKuqMnwZGtFg5_FCC6/exec';
+
+        const form = document.getElementById('enrollmentForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const spinner = document.getElementById('spinner');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Basic validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const whatsapp = document.getElementById('whatsapp').value.trim() || 'Not provided';
+            const subject = document.getElementById('subject').value;
+            const batch = document.getElementById('batch').value;
+
+            if (!name || !email || !phone || !subject || !batch) {
+                alert('Please fill all required fields.');
+                return;
+            }
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Phone validation (basic)
+            if (phone.length < 10) {
+                alert('Please enter a valid phone number.');
+                return;
+            }
+
+            // Show loading
+            submitBtn.disabled = true;
+            spinner.style.display = 'inline-block';
+            successMsg.style.display = 'none';
+
+            // Prepare data
+            const formData = {
+                name,
+                email,
+                phone,
+                whatsapp,
+                subject,
+                batch,
+                timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+            };
+
+            try {
+                // Send to Google Apps Script
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Required for Google Apps Script
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                // Since no-cors prevents reading response, we assume success
+                successMsg.style.display = 'block';
+                form.reset();
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('Something went wrong. Please try again or contact us directly.');
+            } finally {
+                submitBtn.disabled = false;
+                spinner.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

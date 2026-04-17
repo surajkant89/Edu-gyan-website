@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/student-male.png">
+    <title>Gallery Coming Soon | GyanKunj Academy</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0B7A55;
+            --primary-light: #00C896;
+            --gradient: linear-gradient(135deg, #00C896 0%, #0B7A55 100%);
+            --bg-light: #f4faf7;
+            --text-dark: #1E1E1E;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Background Pattern */
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 200, 150, 0.08);
+            animation: float 15s infinite ease-in-out alternate;
+        }
+
+        .circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -10%;
+            left: -10%;
+            animation-duration: 20s;
+        }
+
+        .circle:nth-child(2) {
+            width: 500px;
+            height: 500px;
+            bottom: -20%;
+            right: -10%;
+            animation-duration: 25s;
+            background: rgba(11, 122, 85, 0.05);
+        }
+
+        .circle:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            top: 40%;
+            right: 20%;
+            animation-duration: 18s;
+            background: rgba(0, 200, 150, 0.06);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) scale(1); }
+            100% { transform: translateY(-30px) translateX(30px) scale(1.1); }
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 32px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.05);
+            animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 3D Image Stack Animation */
+        .floating-gallery {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            margin: 0 auto 40px;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .photo-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 6px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-light);
+            background: linear-gradient(135deg, #f0f7f4 0%, #e0f2eb 100%);
+            animation: floatGallery 6s infinite ease-in-out;
+        }
+
+        .photo-1 {
+            transform: rotate(-15deg) translateZ(-50px) translateX(-40px);
+            opacity: 0.8;
+            animation-delay: -2s;
+        }
+
+        .photo-2 {
+            transform: rotate(10deg) translateZ(-25px) translateX(30px);
+            opacity: 0.9;
+            animation-delay: -4s;
+        }
+
+        .photo-3 {
+            transform: translateZ(0);
+            z-index: 5;
+        }
+
+        @keyframes floatGallery {
+            0%, 100% { margin-top: 0px; }
+            50% { margin-top: -15px; }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #4A5A53;
+            margin-bottom: 32px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .loading-dots {
+            display: inline-block;
+        }
+
+        .loading-dots span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            margin: 0 3px;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(11, 122, 85, 0.25);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 25px rgba(11, 122, 85, 0.35);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.05rem; }
+            .content-container { padding: 30px 20px; margin: 20px; }
+            .floating-gallery { width: 160px; height: 120px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Decor -->
+    <div class="background-animation">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        
+        <div class="floating-gallery">
+            <div class="photo-frame photo-1"><i class="fas fa-image"></i></div>
+            <div class="photo-frame photo-2"><i class="fas fa-camera"></i></div>
+            <div class="photo-frame photo-3"><i class="fas fa-images"></i></div>
+        </div>
+
+        <h1>Coming Soon</h1>
+        
+        <div class="subtitle">
+            We are curating the best moments of GyanKunj Academy.<br>
+            A beautiful gallery is being prepared for you.
+            <br><br>
+            <div class="loading-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <a href="index.html" class="btn-home">
+            <i class="fas fa-arrow-left"></i> Go Back Home
+        </a>
+    </div>
+
+    <script>
+        // Subtle mouse parallax effect for the floating gallery
+        document.addEventListener('mousemove', (e) => {
+            const gallery = document.querySelector('.floating-gallery');
+            const speed = 20;
+            const x = (window.innerWidth - e.pageX * speed) / 100;
+            const y = (window.innerHeight - e.pageY * speed) / 100;
+            
+            gallery.style.transform = `rotateX(${y}deg) rotateY(${-x}deg)`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/student-male.png">
+    <title>Contact Us | GyanKunj Academy</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0B7A55;
+            --primary-light: #00C896;
+            --gradient: linear-gradient(135deg, #00C896 0%, #0B7A55 100%);
+            --bg-light: #F9FCFA;
+            --card-bg: #ffffff;
+            --text-dark: #1E1E1E;
+            --text-light: #4A4A4A;
+            --shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+            --border-light: #E6EDE8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 32px;
+            padding: 36px 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+            height: fit-content;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+        }
+
+        .info-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+
+        .info-text p {
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .map-container {
+            margin-top: 30px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        .form-card {
+            background: var(--card-bg);
+            border-radius: 32px;
+            padding: 36px 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 1rem;
+            border: 1.5px solid var(--border-light);
+            border-radius: 20px;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            outline: none;
+            transition: border 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--primary);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 60px;
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 12px 24px rgba(11, 122, 85, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 30px rgba(11, 122, 85, 0.3);
+        }
+
+        .success-message {
+            background: #e0ffe8;
+            color: #0B7A55;
+            padding: 16px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 24px;
+            display: none;
+        }
+
+        .loading-spinner {
+            display: none;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .social-links a {
+            background: var(--bg-light);
+            width: 45px;
+            height: 45px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            transition: 0.2s;
+            border: 1px solid var(--border-light);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contact-wrapper">
+        <div class="page-header">
+            <h1>📬 Get in Touch</h1>
+            <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+        </div>
+
+        <div class="contact-grid">
+            <!-- Left Column: Contact Info & Map -->
+            <div class="info-card">
+                <h2 style="margin-bottom: 24px; font-size: 1.8rem;">Contact Information</h2>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="info-text">
+                        <h3>Visit Us</h3>
+                        <p>S.M College Rd, opposite combined building, Katahalbari,
+                            Khanjarpur, Bhagalpur, Bihar 812001</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="info-text">
+                        <h3>Call Us</h3>
+                        <p>+91 7677107779</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="info-text">
+                        <h3>Email Us</h3>
+                        <p>gyankunjacademy799@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-clock"></i></div>
+                    <div class="info-text">
+                        <h3>Working Hours</h3>
+                        <p>Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href=" https://www.facebook.com/gyankunjbgp"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/gyankunjbgp?igsh=MWF3MGYzenV3ZmZ1Mw=="><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/917677107779"><i class="fab fa-whatsapp"></i></a>
+                </div>
+
+                <div class="map-container">
+                    <iframe
+                        src="https://maps.google.com/maps?q=S.M%20College%20Rd%2C%20opposite%20combined%20building%2C%20Katahalbari%2C%20Khanjarpur%2C%20Bhagalpur%2C%20Bihar%20812001&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Right Column: Contact Form -->
+            <div class="form-card">
+                <h2 style="margin-bottom: 24px; font-size: 1.8rem;">Send a Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-phone-alt"></i> Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> Your Message *</label>
+                        <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                        <i class="fas fa-spinner fa-spin loading-spinner" id="spinner"></i>
+                    </button>
+
+                    <div class="success-message" id="successMsg">
+                        <i class="fas fa-check-circle"></i> Thank you! We'll get back to you shortly.
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Google Sheets Integration (same pattern as enrollment)
+        // Replace with your deployed Google Apps Script Web App URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzP7LieRrv9bIxLfdEUfzXBF3RBecT0b9e-mRAYQbQg1nqsEnExS708bfXipVOVFU-FGQ/exec'; // ⬅️ CHANGE THIS
+
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const spinner = document.getElementById('spinner');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !phone || !message) {
+                alert('Please fill all required fields.');
+                return;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            if (phone.length < 10) {
+                alert('Please enter a valid phone number.');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            spinner.style.display = 'inline-block';
+            successMsg.style.display = 'none';
+
+            const formData = {
+                name,
+                email,
+                phone,
+                message,
+                timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+            };
+
+            try {
+                if (SCRIPT_URL.includes('XXXXXXXXXXXXXXXX')) {
+                    // Demo mode
+                    await new Promise(resolve => setTimeout(resolve, 1200));
+                    console.log('Contact form demo data:', formData);
+                    successMsg.style.display = 'block';
+                    form.reset();
+                } else {
+                    const response = await fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
+                    });
+                    successMsg.style.display = 'block';
+                    form.reset();
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('Something went wrong. Please try again or contact us directly.');
+            } finally {
+                submitBtn.disabled = false;
+                spinner.style.display = 'none';
+            }
+        });
+    </script>
+    <!-- 
+        ========== GOOGLE SHEETS SETUP FOR CONTACT FORM ==========
+        1. Create Google Sheet with columns: Name, Email, Phone, Message, Timestamp
+        2. Apps Script code:
+        
+        function doPost(e) {
+          var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+          sheet.appendRow([
+            e.parameter.name,
+            e.parameter.email,
+            e.parameter.phone,
+            e.parameter.message,
+            e.parameter.timestamp
+          ]);
+          return ContentService.createTextOutput("Success");
+        }
+        
+        3. Deploy as Web App, copy URL and paste above.
+    -->
+</body>
+
+</html>

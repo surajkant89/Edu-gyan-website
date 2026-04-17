@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/student-male.png">
+    <title>Free Apps | GyanKunj Academy</title>
+    <!-- Fonts & Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0B7A55;
+            --primary-light: #00C896;
+            --gradient: linear-gradient(135deg, #00C896 0%, #0B7A55 100%);
+            --bg-light: #F9FCFA;
+            --card-bg: #ffffff;
+            --text-dark: #1E1E1E;
+            --text-light: #4A4A4A;
+            --shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+            --border-light: #E6EDE8;
+        }
+
+        body.dark {
+            --primary: #0B7A55;
+            --primary-light: #00C896;
+            --bg-light: #121212;
+            --card-bg: #1E2A24;
+            --text-dark: #F0F5F3;
+            --text-light: #C0CCC6;
+            --shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+            --border-light: #2A3A32;
+            --gradient: linear-gradient(135deg, #00C896 0%, #0B7A55 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.5;
+            transition: background 0.3s, color 0.2s;
+            padding: 24px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* Navbar (simple) */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .logo h2 {
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .back-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .theme-toggle {
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 40px;
+            padding: 8px 14px;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        /* Cards Grid */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 32px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .app-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-light);
+            box-shadow: 0 30px 45px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .icon-wrapper {
+            background: var(--gradient);
+            width: 60px;
+            height: 60px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+        }
+
+        .card-header h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 28px;
+            flex: 1;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features-list i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 18px rgba(11, 122, 85, 0.2);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: fit-content;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 24px rgba(11, 122, 85, 0.3);
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Simple Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <h2>GyanKunj Academy</h2>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                <div class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></div>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <div class="page-header" data-aos="fade-up">
+            <h1>🆓 Free Apps for Students</h1>
+            <p>Boost your productivity with our free, ad‑free tools — designed by GyanKunj</p>
+        </div>
+
+        <!-- Apps Cards -->
+        <div class="apps-grid">
+            <!-- Card 1: Task Manager -->
+            <div class="app-card" data-aos="fade-right">
+                <div class="card-header">
+                    <div class="icon-wrapper"><i class="fas fa-tasks"></i></div>
+                    <h3>Task Manager</h3>
+                </div>
+                <div class="subtitle">Organize your academic life efficiently</div>
+                <div class="description">
+                    Keep track of assignments, projects, and deadlines with our intuitive task manager. Designed
+                    specifically for students, it helps you stay on top of your coursework without any ads.
+                </div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Create and organize tasks</li>
+                    <li><i class="fas fa-check-circle"></i> Set priorities and due dates</li>
+                    <li><i class="fas fa-check-circle"></i> Track your progress</li>
+                    <li><i class="fas fa-check-circle"></i> Get reminders for deadlines</li>
+                    <li><i class="fas fa-check-circle"></i> Sync across devices</li>
+                </ul>
+                <a href="https://mellow-taffy-4249df.netlify.app/" target="_blank" class="btn-primary">
+                    <i class="fas fa-external-link-alt"></i> Open Task Manager
+                </a>
+            </div>
+
+            <!-- Card 2: Interactive Whiteboard -->
+            <div class="app-card" data-aos="fade-left">
+                <div class="card-header">
+                    <div class="icon-wrapper"><i class="fas fa-chalkboard"></i></div>
+                    <h3>Interactive Whiteboard</h3>
+                </div>
+                <div class="subtitle">Visualize ideas and writing in real‑time</div>
+                <div class="description">
+                    Unleash your creativity with our digital whiteboard. Perfect for brainstorming, diagramming, and
+                    explaining concepts visually. Great for individual study or group collaboration.
+                </div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Multiple drawing tools and colors</li>
+                    <li><i class="fas fa-check-circle"></i> Real-time writing features</li>
+                    <li><i class="fas fa-check-circle"></i> Save and export your work as images</li>
+                    <li><i class="fas fa-check-circle"></i> Use anytime, anywhere on any device</li>
+                    <li><i class="fas fa-check-circle"></i> Clean canvas with infinite space</li>
+                </ul>
+                <a href="https://draw2write.netlify.app/" target="_blank" class="btn-primary">
+                    <i class="fas fa-external-link-alt"></i> Open Whiteboard
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>✨ More free tools coming soon. Stay tuned!</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            themeToggle.innerHTML = document.body.classList.contains('dark')
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
+        });
+
+        // Optional: Check for saved preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        themeToggle.addEventListener('click', () => {
+            if (document.body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+
+</html>

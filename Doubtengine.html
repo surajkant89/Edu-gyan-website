@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyankunj Academy - Doubt Engine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            padding: 30px;
+        }
+
+        /* Beautiful Marquee Styling */
+        .marquee-wrapper {
+            background: linear-gradient(90deg, #ff8c00, #ff0080, #ff8c00);
+            background-size: 200% auto;
+            border-radius: 40px;
+            margin-bottom: 20px;
+            padding: 8px 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: shimmer 3s linear infinite;
+        }
+
+        marquee {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Optional: For browsers that don't support marquee, add fallback */
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #333;
+            text-align: center;
+        }
+
+        .subhead {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: 0.2s;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .info {
+            margin-top: 20px;
+            background: #f8f9ff;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .info i {
+            font-style: normal;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Beautiful Marquee on Top -->
+        <div class="marquee-wrapper">
+            <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();"
+                onmouseout="this.start();">
+                🚀 GYANKUNJ-ACADEMY-DOUBT-ENGINE 🔥 | Submit Your Doubt & Get Solution in 24 Hours ✨
+            </marquee>
+        </div>
+
+        <h1>📚 Submit Your Doubt</h1>
+        <div class="subhead">We'll solve it within 24 hours</div>
+
+        <form id="doubtForm">
+            <input type="text" name="name" placeholder="Your Full Name" required>
+            <input type="text" name="admission" placeholder="Admission Number" required>
+            <input type="tel" name="whatsapp" placeholder="WhatsApp Number (with country code)" required>
+            <input type="email" name="email" placeholder="Email ID" required>
+
+            <select name="subject" required>
+                <option value="">Select Subject</option>
+                <option>Physics</option>
+                <option>Chemistry</option>
+                <option>Maths</option>
+                <option>Biology</option>
+                <option>Arts</option>
+                <option>Commerce</option>
+                <option>Computer</option>
+            </select>
+
+            <textarea name="doubt" placeholder="Describe your doubt in detail..." required></textarea>
+
+            <button type="submit">Submit Doubt</button>
+        </form>
+
+        <div class="info">
+            ✅ Solution will be sent to your WhatsApp & Email within 24 hours.
+        </div>
+    </div>
+
+    <script>
+        // === YOUR GOOGLE APPS SCRIPT WEB APP URL ===
+        const scriptURL = "https://script.google.com/macros/s/AKfycbw-hZKhmEgE12bFEvAKrEvB4cG4PNDXpQcQStLbCll7Ely2UyhulkynRBe5UDvGR8uC/exec";
+
+        const form = document.getElementById("doubtForm");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get("name"),
+                admission: formData.get("admission"),
+                whatsapp: formData.get("whatsapp"),
+                email: formData.get("email"),
+                subject: formData.get("subject"),
+                doubt: formData.get("doubt"),
+                submittedAt: new Date().toISOString()
+            };
+
+            const submitBtn = form.querySelector("button");
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting...";
+
+            try {
+                await fetch(scriptURL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                alert("✅ Doubt submitted successfully! We'll send the solution within 24 hours.");
+                form.reset();
+            } catch (error) {
+                console.error("Submission error:", error);
+                alert("❌ Submission failed. Please check your internet connection and try again.");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Submit Doubt";
+            }
+        });
+    </script>
+</body>
+
+</html>
