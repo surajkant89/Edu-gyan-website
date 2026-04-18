@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Gyankunj Academy | Student Reviews</title>
+    <!-- Font Awesome for clean star icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ----- GREEN THEME & RESPONSIVE BASE ----- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f4faf5;
+            /* very light green background */
+            margin: 0;
+            padding: 20px;
+            color: #1e2e1e;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Headings with green accent */
+        h1 {
+            color: #1a5e1a;
+            font-size: 2.2rem;
+            margin-bottom: 0.2rem;
+            border-left: 6px solid #2e8b57;
+            padding-left: 20px;
+        }
+
+        h2 {
+            color: #1e4a1e;
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .academy-subhead {
+            color: #2c6e2c;
+            font-size: 1.2rem;
+            margin-top: -5px;
+            margin-bottom: 30px;
+            padding-left: 26px;
+            font-weight: 400;
+        }
+
+        /* ----- REVIEW FORM CARD (Green touches) ----- */
+        .review-form {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(34, 94, 34, 0.08);
+            border: 1px solid #d0e8d0;
+            margin-bottom: 40px;
+            transition: box-shadow 0.2s;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1d4d1d;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            max-width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #cde0cd;
+            border-radius: 16px;
+            font-size: 1rem;
+            background: #fdfdfd;
+            transition: border 0.2s, box-shadow 0.2s;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #2e8b57;
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        /* Star rating — interactive green stars */
+        .rating-stars {
+            direction: rtl;
+            display: flex;
+            justify-content: flex-start;
+            gap: 5px;
+        }
+
+        .rating-stars input {
+            display: none;
+        }
+
+        .rating-stars label {
+            font-size: 2.6rem;
+            color: #bcd0b0;
+            cursor: pointer;
+            transition: color 0.15s;
+            margin: 0 2px;
+            line-height: 1;
+        }
+
+        .rating-stars label:hover,
+        .rating-stars label:hover~label {
+            color: #f4c542;
+            /* warm gold on hover */
+        }
+
+        .rating-stars input:checked~label {
+            color: #2e8b57;
+            /* green stars when selected */
+        }
+
+        /* Submit button — strong green */
+        button {
+            background: #2e8b57;
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 40px;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(46, 139, 87, 0.3);
+            transition: background 0.2s, transform 0.1s;
+            width: 100%;
+            max-width: 280px;
+            margin-top: 10px;
+            border: 1px solid #1f6a3f;
+        }
+
+        button:hover {
+            background: #1f6a3f;
+            box-shadow: 0 8px 16px rgba(30, 90, 50, 0.25);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #message {
+            margin-top: 18px;
+            font-weight: 500;
+            min-height: 28px;
+        }
+
+        /* ----- DISPLAY REVIEWS (Green accents) ----- */
+        .reviews-container {
+            background: transparent;
+        }
+
+        #reviewsList {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 22px 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0, 30, 0, 0.05);
+            border-left: 6px solid #2e8b57;
+            transition: transform 0.1s ease;
+            border: 1px solid #e2f0e2;
+        }
+
+        .review-name {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #134e13;
+            margin-bottom: 6px;
+        }
+
+        .review-rating {
+            color: #2e8b57;
+            /* green stars for displayed reviews */
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .review-comment {
+            color: #2a3a2a;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Placeholder / empty state */
+        #reviewsList p {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            color: #3b5e3b;
+            font-style: italic;
+            border: 1px dashed #9fcc9f;
+        }
+
+        /* ----- RESPONSIVE ENHANCEMENTS (Mobile first already, but fine-tuning) ----- */
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+                padding-left: 14px;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .review-form {
+                padding: 20px 16px;
+            }
+
+            .rating-stars label {
+                font-size: 2.2rem;
+                /* easier tap on mobile */
+            }
+
+            button {
+                max-width: 100%;
+                font-size: 1.1rem;
+                padding: 16px 20px;
+            }
+
+            .review-card {
+                padding: 18px 16px;
+            }
+
+            .review-rating {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Two-column grid for reviews on larger screens */
+        @media (min-width: 700px) {
+            #reviewsList {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Footer / subtle green underline */
+        .footer-note {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #46834b;
+        }
+
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #ffffff;
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(34, 94, 34, 0.1);
+            border: 1px solid #d0e8d0;
+            transition: all 0.2s;
+        }
+
+        .back-home-btn:hover {
+            background: #f4faf5;
+            box-shadow: 0 6px 14px rgba(34, 94, 34, 0.15);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-home-btn">
+            <i class="fas fa-arrow-left"></i> Go Home
+        </a>
+        <!-- Main heading with green identity -->
+        <h1>🌱 Gyankunj Academy Edu.</h1>
+        <div class="academy-subhead">Nurturing minds, growing futures</div>
+
+        <!-- REVIEW SUBMISSION SECTION -->
+        <div class="review-form">
+            <h2 style="margin-top: 0; margin-bottom: 20px;">✏️ Share Your Experience</h2>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user" style="margin-right: 6px; color: #2e8b57;"></i>Your
+                        Name</label>
+                    <input type="text" id="name" name="name" placeholder="e.g., Priya Sharma" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-star" style="margin-right: 6px; color: #2e8b57;"></i>Your Rating</label>
+                    <div class="rating-stars">
+                        <input type="radio" id="star5" name="rating" value="5"><label for="star5"
+                            title="5 stars">★</label>
+                        <input type="radio" id="star4" name="rating" value="4"><label for="star4"
+                            title="4 stars">★</label>
+                        <input type="radio" id="star3" name="rating" value="3"><label for="star3"
+                            title="3 stars">★</label>
+                        <input type="radio" id="star2" name="rating" value="2"><label for="star2"
+                            title="2 stars">★</label>
+                        <input type="radio" id="star1" name="rating" value="1"><label for="star1"
+                            title="1 star">★</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment"><i class="fas fa-comment-dots"
+                            style="margin-right: 6px; color: #2e8b57;"></i>Your Review</label>
+                    <textarea id="comment" name="comment"
+                        placeholder="Tell us about your experience at Gyankunj Academy..." required></textarea>
+                </div>
+
+                <button type="submit"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i>SUBMIT</button>
+                <div id="message"></div>
+            </form>
+        </div>
+
+        <!-- APPROVED REVIEWS DISPLAY (with explicit heading) -->
+        <div class="reviews-container">
+            <h2>⭐ Gyankunj Academy Edu. Students Review</h2>
+            <div id="reviewsList">Loading reviews...</div>
+        </div>
+        <div class="footer-note">✨ “We showcase only authentic reviews to maintain quality” ✨</div>
+    </div>
+
+    <script>
+        // ---------- CONFIGURATION: REPLACE WITH YOUR GOOGLE APPS SCRIPT URL ----------
+        const API_URL = 'https://script.google.com/macros/s/AKfycby7VDKzk69a90e_bl7kiqQnjo81ObrjtHGnI6vJOmklptGZwbkMzMl0yauTIGuyOdnWqQ/exec';
+
+        const form = document.getElementById('reviewForm');
+        const messageDiv = document.getElementById('message');
+        const reviewsListDiv = document.getElementById('reviewsList');
+
+        // ----- Fetch approved reviews from sheet -----
+        async function loadReviews() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const reviews = await response.json();
+                displayReviews(reviews);
+            } catch (error) {
+                console.error('Could not load reviews:', error);
+                reviewsListDiv.innerHTML = '<p>🌿 Unable to load reviews right now. Please refresh.</p>';
+            }
+        }
+
+        function displayReviews(reviews) {
+            if (!reviews || reviews.length === 0) {
+                reviewsListDiv.innerHTML = '<p>🌱 No approved reviews yet. Be the first to share your thoughts!</p>';
+                return;
+            }
+
+            // Show most recent first (assuming sheet is in chronological order)
+            const sorted = [...reviews].reverse();
+
+            let html = '';
+            sorted.forEach(review => {
+                const starCount = parseInt(review['Star Rating']) || 5;
+                const fullStar = '★'.repeat(starCount);
+                const emptyStar = '☆'.repeat(5 - starCount);
+                const starsDisplay = fullStar + emptyStar;
+
+                html += `
+          <div class="review-card">
+            <div class="review-name">${escapeHTML(review['Name'] || 'Anonymous')}</div>
+            <div class="review-rating">${starsDisplay}</div>
+            <div class="review-comment">${escapeHTML(review['Comment'] || '')}</div>
+          </div>
+        `;
+            });
+            reviewsListDiv.innerHTML = html;
+        }
+
+        // Simple escape to prevent XSS
+        function escapeHTML(str) {
+            return String(str).replace(/[&<>"]/g, function (c) {
+                if (c === '&') return '&amp;';
+                if (c === '<') return '&lt;';
+                if (c === '>') return '&gt;';
+                if (c === '"') return '&quot;';
+                return c;
+            });
+        }
+
+        // ----- Submit new review (POST to sheet) -----
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('name');
+            const ratingInput = document.querySelector('input[name="rating"]:checked');
+            const commentInput = document.getElementById('comment');
+
+            if (!ratingInput) {
+                messageDiv.textContent = 'Please select a star rating.';
+                messageDiv.style.color = '#b33';
+                return;
+            }
+
+            const formData = {
+                name: nameInput.value.trim(),
+                rating: ratingInput.value,
+                comment: commentInput.value.trim()
+            };
+
+            messageDiv.textContent = 'Submitting your review...';
+            messageDiv.style.color = '#2e8b57';
+
+            try {
+                // 'no-cors' required for Apps Script web app
+                await fetch(API_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                // Because of no-cors, we assume success.
+                messageDiv.textContent = '✓ Thank you! Your review is awaiting approval.';
+                messageDiv.style.color = '#1a5e1a';
+                form.reset();
+
+                // Optional: clear stars UI manually (radio reset doesn't uncheck)
+                const stars = document.querySelectorAll('input[name="rating"]');
+                stars.forEach(star => star.checked = false);
+
+            } catch (error) {
+                console.error('Submission error:', error);
+                messageDiv.textContent = '⚠️ Network error. Please try again.';
+                messageDiv.style.color = '#b33';
+            }
+        });
+
+        // Load reviews on page load
+        loadReviews();
+    </script>
+</body>
+
+</html>
