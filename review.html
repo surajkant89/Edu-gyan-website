@@ -17,8 +17,8 @@
 
         body {
             font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-            background: #f4faf5;
-            /* very light green background */
+            background: #FFFCF5;
+            /* very light yellow background */
             margin: 0;
             padding: 20px;
             color: #1e2e1e;
@@ -30,17 +30,17 @@
             margin: 0 auto;
         }
 
-        /* Headings with green accent */
+        /* Headings with yellow accent */
         h1 {
-            color: #1a5e1a;
+            color: #5a4b2c;
             font-size: 2.2rem;
             margin-bottom: 0.2rem;
-            border-left: 6px solid #2e8b57;
+            border-left: 6px solid #FDB913;
             padding-left: 20px;
         }
 
         h2 {
-            color: #1e4a1e;
+            color: #5a4b2c;
             font-size: 1.8rem;
             margin: 30px 0 15px 0;
             font-weight: 600;
@@ -48,7 +48,7 @@
         }
 
         .academy-subhead {
-            color: #2c6e2c;
+            color: #8B6508;
             font-size: 1.2rem;
             margin-top: -5px;
             margin-bottom: 30px;
@@ -56,13 +56,13 @@
             font-weight: 400;
         }
 
-        /* ----- REVIEW FORM CARD (Green touches) ----- */
+        /* ----- REVIEW FORM CARD (Yellow touches) ----- */
         .review-form {
             background: white;
             padding: 30px 25px;
             border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(34, 94, 34, 0.08);
-            border: 1px solid #d0e8d0;
+            box-shadow: 0 8px 20px rgba(253, 185, 19, 0.08);
+            border: 1px solid #F2EBE1;
             margin-bottom: 40px;
             transition: box-shadow 0.2s;
         }
@@ -75,7 +75,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: #1d4d1d;
+            color: #5a4b2c;
         }
 
         input[type="text"],
@@ -84,7 +84,7 @@
             width: 100%;
             max-width: 100%;
             padding: 14px 16px;
-            border: 2px solid #cde0cd;
+            border: 2px solid #FFF4D6;
             border-radius: 16px;
             font-size: 1rem;
             background: #fdfdfd;
@@ -95,8 +95,8 @@
         input[type="text"]:focus,
         textarea:focus {
             outline: none;
-            border-color: #2e8b57;
-            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.15);
+            border-color: #FDB913;
+            box-shadow: 0 0 0 3px rgba(253, 185, 19, 0.15);
         }
 
         textarea {
@@ -118,7 +118,7 @@
 
         .rating-stars label {
             font-size: 2.6rem;
-            color: #bcd0b0;
+            color: #E8E8E8;
             cursor: pointer;
             transition: color 0.15s;
             margin: 0 2px;
@@ -127,36 +127,36 @@
 
         .rating-stars label:hover,
         .rating-stars label:hover~label {
-            color: #f4c542;
+            color: #FDB913;
             /* warm gold on hover */
         }
 
         .rating-stars input:checked~label {
-            color: #2e8b57;
-            /* green stars when selected */
+            color: #FDB913;
+            /* yellow stars when selected */
         }
 
-        /* Submit button — strong green */
+        /* Submit button — strong yellow */
         button {
-            background: #2e8b57;
-            color: white;
+            background: linear-gradient(135deg, #FFD54F 0%, #FDB913 100%);
+            color: #1E1E1E;
             border: none;
             font-size: 1.2rem;
             font-weight: 600;
             padding: 14px 28px;
             border-radius: 40px;
             cursor: pointer;
-            box-shadow: 0 6px 12px rgba(46, 139, 87, 0.3);
+            box-shadow: 0 6px 12px rgba(253, 185, 19, 0.3);
             transition: background 0.2s, transform 0.1s;
             width: 100%;
             max-width: 280px;
             margin-top: 10px;
-            border: 1px solid #1f6a3f;
+            border: 1px solid #E0A30F;
         }
 
         button:hover {
-            background: #1f6a3f;
-            box-shadow: 0 8px 16px rgba(30, 90, 50, 0.25);
+            background: #E0A30F;
+            box-shadow: 0 8px 16px rgba(224, 163, 15, 0.25);
         }
 
         button:active {
@@ -184,29 +184,29 @@
             background: white;
             padding: 22px 20px;
             border-radius: 18px;
-            box-shadow: 0 4px 12px rgba(0, 30, 0, 0.05);
-            border-left: 6px solid #2e8b57;
+            box-shadow: 0 4px 12px rgba(253, 185, 19, 0.05);
+            border-left: 6px solid #FDB913;
             transition: transform 0.1s ease;
-            border: 1px solid #e2f0e2;
+            border: 1px solid #FFF4D6;
         }
 
         .review-name {
             font-weight: 700;
             font-size: 1.25rem;
-            color: #134e13;
+            color: #5a4b2c;
             margin-bottom: 6px;
         }
 
         .review-rating {
-            color: #2e8b57;
-            /* green stars for displayed reviews */
+            color: #FDB913;
+            /* yellow stars for displayed reviews */
             font-size: 1.4rem;
             letter-spacing: 3px;
             margin-bottom: 10px;
         }
 
         .review-comment {
-            color: #2a3a2a;
+            color: #5a4b2c;
             font-size: 1rem;
             line-height: 1.5;
         }
@@ -217,9 +217,9 @@
             padding: 30px;
             border-radius: 18px;
             text-align: center;
-            color: #3b5e3b;
+            color: #8B6508;
             font-style: italic;
-            border: 1px dashed #9fcc9f;
+            border: 1px dashed #FFD54F;
         }
 
         /* ----- RESPONSIVE ENHANCEMENTS (Mobile first already, but fine-tuning) ----- */
@@ -273,27 +273,27 @@
             margin-top: 40px;
             text-align: center;
             font-size: 0.9rem;
-            color: #46834b;
+            color: #8B6508;
         }
 
         .back-home-btn {
             display: inline-flex;
             align-items: center;
             background: #ffffff;
-            color: #2e8b57;
+            color: #FDB913;
             text-decoration: none;
             font-weight: 600;
             padding: 10px 20px;
             border-radius: 30px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(34, 94, 34, 0.1);
-            border: 1px solid #d0e8d0;
+            box-shadow: 0 4px 10px rgba(253, 185, 19, 0.1);
+            border: 1px solid #FFF4D6;
             transition: all 0.2s;
         }
 
         .back-home-btn:hover {
-            background: #f4faf5;
-            box-shadow: 0 6px 14px rgba(34, 94, 34, 0.15);
+            background: #FFFCF5;
+            box-shadow: 0 6px 14px rgba(253, 185, 19, 0.15);
             transform: translateY(-2px);
         }
     </style>
@@ -313,13 +313,13 @@
             <h2 style="margin-top: 0; margin-bottom: 20px;">✏️ Share Your Experience</h2>
             <form id="reviewForm">
                 <div class="form-group">
-                    <label for="name"><i class="fas fa-user" style="margin-right: 6px; color: #2e8b57;"></i>Your
+                    <label for="name"><i class="fas fa-user" style="margin-right: 6px; color: #FDB913;"></i>Your
                         Name</label>
                     <input type="text" id="name" name="name" placeholder="e.g., Priya Sharma" required>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fas fa-star" style="margin-right: 6px; color: #2e8b57;"></i>Your Rating</label>
+                    <label><i class="fas fa-star" style="margin-right: 6px; color: #FDB913;"></i>Your Rating</label>
                     <div class="rating-stars">
                         <input type="radio" id="star5" name="rating" value="5"><label for="star5"
                             title="5 stars">★</label>
@@ -336,7 +336,7 @@
 
                 <div class="form-group">
                     <label for="comment"><i class="fas fa-comment-dots"
-                            style="margin-right: 6px; color: #2e8b57;"></i>Your Review</label>
+                            style="margin-right: 6px; color: #FDB913;"></i>Your Review</label>
                     <textarea id="comment" name="comment"
                         placeholder="Tell us about your experience at Gyankunj Academy..." required></textarea>
                 </div>
