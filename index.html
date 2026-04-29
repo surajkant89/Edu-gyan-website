@@ -11,7 +11,32 @@
     <meta name="theme-color" content="#0B7A55">
     <link rel="manifest"
         href="data:application/manifest+json,{name:'GyanKunj Academy',short_name:'GKA',icons:[{src:'gyankunjfavicon.jpeg',sizes:'48x48',type:'image/jpeg'}],start_url:'.',display:'standalone',background_color:'#ffffff',theme_color:'#0B7A55'}">
-    <title>GyanKunj Academy Bhagalpur | JEE · NEET · Foundation</title>
+
+    <!-- SEO Meta Tags -->
+    <title>GyanKunj Academy Bhagalpur | Top Coaching for JEE, NEET & Foundation</title>
+    <meta name="description"
+        content="GyanKunj Academy in Bhagalpur is the premier coaching institute for JEE Mains & Advanced, NEET Preparation, Foundation Classes (8th-12th), C.A-Foundation, and Computer Coding.">
+    <meta name="keywords"
+        content="GyanKunj Academy, Bhagalpur coaching, JEE coaching Bhagalpur, NEET preparation Bhagalpur, Foundation classes, best coaching in Bhagalpur, C.A Foundation, coding classes for kids">
+    <meta name="author" content="GyanKunj Academy">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gyankunjacademy.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gyankunjacademy.com/">
+    <meta property="og:title" content="GyanKunj Academy Bhagalpur | Top Coaching for JEE & NEET">
+    <meta property="og:description"
+        content="Best coaching institute in Bhagalpur for JEE, NEET, and Foundation. Expert faculty, doubt engine, and daily practice tests.">
+    <meta property="og:image" content="https://gyankunjacademy.com/girls.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://gyankunjacademy.com/">
+    <meta property="twitter:title" content="GyanKunj Academy Bhagalpur | Top Coaching for JEE & NEET">
+    <meta property="twitter:description"
+        content="Best coaching institute in Bhagalpur for JEE, NEET, and Foundation. Expert faculty, doubt engine, and daily practice tests.">
+    <meta property="twitter:image" content="https://gyankunjacademy.com/girls.jpeg">
     <!-- Fonts & Icons -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
@@ -29,29 +54,29 @@
         }
 
         :root {
-            --primary: #0B7A55;
-            --primary-light: #00C896;
+            --primary: #FDB913;
+            --primary-light: #FFD54F;
             --secondary: #ffffff;
             --text-dark: #1E1E1E;
             --text-light: #4A4A4A;
-            --bg-light: #F9FCFA;
+            --bg-light: #FFFCF5;
             --card-bg: #ffffff;
             --shadow: 0 12px 28px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.02);
-            --border-light: #E6EDE8;
-            --gradient: linear-gradient(135deg, #00C896 0%, #0B7A55 100%);
+            --border-light: #F2EBE1;
+            --gradient: linear-gradient(135deg, #FFD54F 0%, #FDB913 100%);
         }
 
         body.dark {
-            --primary: #0B7A55;
-            --primary-light: #00C896;
+            --primary: #FDB913;
+            --primary-light: #FFD54F;
             --secondary: #1E1E1E;
-            --text-dark: #F0F5F3;
-            --text-light: #C0CCC6;
+            --text-dark: #FDFCF0;
+            --text-light: #D4CFC0;
             --bg-light: #121212;
-            --card-bg: #1E2A24;
+            --card-bg: #2A251E;
             --shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
-            --border-light: #2A3A32;
-            --gradient: linear-gradient(135deg, #00C896 0%, #0B7A55 100%);
+            --border-light: #3A322A;
+            --gradient: linear-gradient(135deg, #FFD54F 0%, #FDB913 100%);
         }
 
         body {
@@ -96,6 +121,19 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 42px;
+            width: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .logo h2 {
@@ -193,16 +231,16 @@
 
         .enroll-btn {
             background: var(--primary);
-            color: white !important;
+            color: #1E1E1E !important;
             padding: 8px 18px !important;
             border-radius: 60px;
             font-weight: 600;
             font-size: 0.9rem;
-            box-shadow: 0 6px 14px rgba(11, 122, 85, 0.25);
+            box-shadow: 0 6px 14px rgba(253, 185, 19, 0.25);
         }
 
         .enroll-btn:hover {
-            background: #0a5e42;
+            background: #E0A30F;
             transform: scale(1.02);
         }
 
@@ -292,7 +330,7 @@
         /* Buttons & general */
         .btn-primary {
             background: var(--primary);
-            color: white;
+            color: #1E1E1E;
             border: none;
             padding: 14px 32px;
             border-radius: 60px;
@@ -302,7 +340,7 @@
             transition: 0.2s;
             display: inline-block;
             text-decoration: none;
-            box-shadow: 0 8px 18px rgba(11, 122, 85, 0.2);
+            box-shadow: 0 8px 18px rgba(253, 185, 19, 0.2);
         }
 
         .btn-outline {
@@ -437,6 +475,31 @@
             box-shadow: 0 16px 30px rgba(37, 211, 102, 0.5);
         }
 
+        /* Instagram Button */
+        .ig-float {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            box-shadow: 0 12px 24px rgba(220, 39, 67, 0.35);
+            z-index: 999;
+            transition: all 0.25s;
+            border: 2px solid white;
+        }
+
+        .ig-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 16px 30px rgba(220, 39, 67, 0.5);
+        }
+
         /* Dark mode toggle */
         .theme-toggle {
             background: var(--bg-light);
@@ -495,6 +558,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
+                <img src="logogyanrel.png" alt="GyanKunj Academy Logo">
                 <h2>GyanKunj Academy</h2>
             </div>
             <ul class="nav-menu" id="navMenu">
@@ -519,7 +583,7 @@
                 <li><a href="Doubtengine.html" target="_self">Doubt Engine</a></li>
                 <li><a href="https://gyankunjacademycodelab.netlify.app/" target="_self">Web Code Lab</a></li>
                 <!-- Test Series removed completely -->
-                 <li><a href="review.html">Review Us</a></li>
+                <li><a href="review.html">Review Us</a></li>
                 <li><a href="https://www.linkedin.com/in/suraj-kant-58247a22b" target="_blank">Developers Info <i
                             class="fab fa-linkedin" style="font-size: 14px; margin-left: 4px; color: #0A66C2;"></i></a>
                 </li>
@@ -574,31 +638,42 @@
                     style="background: var(--primary-light); padding: 16px 30px; border-radius: 40px; color: #0B2A1E; font-weight: 700;">
                     🎓 50+ Selections</div>
             </div>
-            <div class="card-grid">
-                <div class="topper-card" data-aos="zoom-in">
-                    <img src="GARGI.jpeg" alt="Topper"
-                        style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary);">
-                    <h3 style="margin-top: 16px;">GARGI KUMARI</h3>
-                    <p>AIIMS,Delhi (94%)</p>
+            <div class="swiper toppers-swiper" style="padding: 20px 0 40px;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="topper-card" data-aos="zoom-in" style="height: 100%;">
+                            <img src="GARGI.jpeg" alt="Topper"
+                                style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary);">
+                            <h3 style="margin-top: 16px;">GARGI KUMARI</h3>
+                            <p>AIIMS,Delhi (94%)</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="topper-card" data-aos="zoom-in" data-aos-delay="100" style="height: 100%;">
+                            <img src="vishnukant.jpeg" alt="Topper"
+                                style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary);">
+                            <h3 style="margin-top: 16px;">VISHNUKANT</h3>
+                            <p>Medical college, Kolkata (92.4%)</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="topper-card" data-aos="zoom-in" data-aos-delay="200" style="height: 100%;">
+                            <img src="KCHITIZ.jpeg" alt="Topper"
+                                style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary);">
+                            <h3 style="margin-top: 16px;">KCHITIZ</h3>
+                            <p>IIT-Dhanbad (92.4%)</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="topper-card" data-aos="zoom-in" data-aos-delay="100" style="height: 100%;">
+                            <img src="UTKARSH.jpeg" alt="Topper"
+                                style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary);">
+                            <h3 style="margin-top: 16px;">UTKARSH</h3>
+                            <p>IIT-Guwahati (91%)</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="topper-card" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="vishnukant.jpeg" alt="Topper"
-                        style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary);">
-                    <h3 style="margin-top: 16px;">VISHNUKANT</h3>
-                    <p>Medical college, Kolkata (92.4%)</p>
-                </div>
-                <div class="topper-card" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="KCHITIZ.jpeg" alt="Topper"
-                        style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary);">
-                    <h3 style="margin-top: 16px;">KCHITIZ</h3>
-                    <p>IIT-Dhanbad (92.4%)</p>
-                </div>
-                <div class="topper-card" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="UTKARSH.jpeg" alt="Topper"
-                        style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary);">
-                    <h3 style="margin-top: 16px;">UTKARSH</h3>
-                    <p>IIT-Guwahati (91%)</p>
-                </div>
+                <div class="swiper-pagination toppers-pagination"></div>
             </div>
         </section>
 
@@ -674,25 +749,29 @@
 
         <!-- Digital Features (USP) - Test Series removed, added something else -->
         <section class="container" data-aos="fade-up"
-            style="background: var(--gradient); border-radius: 48px; padding: 48px 32px; color: white; margin-top: 48px;">
-            <h2 style="color: white; font-size: 2.4rem;">🚀 Your Digital Edge</h2>
-            <p style="color: rgba(255,255,255,0.9);">Exclusive tools only at GyanKunj</p>
+            style="background: var(--gradient); border-radius: 48px; padding: 48px 32px; color: #1E1E1E; margin-top: 48px;">
+            <h2 style="color: #1E1E1E; font-size: 2.4rem;">🚀 Your Digital Edge</h2>
+            <p style="color: rgba(30,30,30,0.8);">Exclusive tools only at GyanKunj</p>
             <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
-                <div style="flex:1; min-width:180px;"><i class="fas fa-question-circle" style="font-size: 2.5rem;"></i>
-                    <h3 style="color:white;">Doubt Engine</h3>
-                    <p style="color: #e0ffe8;">Instant solutions</p>
+                <div style="flex:1; min-width:180px;"><i class="fas fa-question-circle"
+                        style="font-size: 2.5rem; color: #1E1E1E;"></i>
+                    <h3 style="color:#1E1E1E;">Doubt Engine</h3>
+                    <p style="color: #333333;">Instant solutions</p>
                 </div>
-                <div style="flex:1; min-width:180px;"><i class="fas fa-code-branch" style="font-size: 2.5rem;"></i>
-                    <h3 style="color:white;">Web Code Lab</h3>
-                    <p style="color: #e0ffe8;">Live coding practice</p>
+                <div style="flex:1; min-width:180px;"><i class="fas fa-code-branch"
+                        style="font-size: 2.5rem; color: #1E1E1E;"></i>
+                    <h3 style="color:#1E1E1E;">Web Code Lab</h3>
+                    <p style="color: #333333;">Live coding practice</p>
                 </div>
-                <div style="flex:1; min-width:180px;"><i class="fas fa-sticky-note" style="font-size: 2.5rem;"></i>
-                    <h3 style="color:white;">Notes Section</h3>
-                    <p style="color: #e0ffe8;">Download PDFs</p>
+                <div style="flex:1; min-width:180px;"><i class="fas fa-sticky-note"
+                        style="font-size: 2.5rem; color: #1E1E1E;"></i>
+                    <h3 style="color:#1E1E1E;">Notes Section</h3>
+                    <p style="color: #333333;">Download PDFs</p>
                 </div>
-                <div style="flex:1; min-width:180px;"><i class="fas fa-chart-line" style="font-size: 2.5rem;"></i>
-                    <h3 style="color:white;">Hybrid Classes</h3>
-                    <p style="color: #e0ffe8;">Online & Offline Classes Available</p>
+                <div style="flex:1; min-width:180px;"><i class="fas fa-chart-line"
+                        style="font-size: 2.5rem; color: #1E1E1E;"></i>
+                    <h3 style="color:#1E1E1E;">Hybrid Classes</h3>
+                    <p style="color: #333333;">Online & Offline Classes Available</p>
                 </div>
             </div>
         </section>
@@ -700,7 +779,7 @@
         <!-- Testimonials Slider -->
         <section class="container" data-aos="fade-up">
             <h2 class="section-title">❤️ Student Love</h2>
-            <div class="swiper" style="padding: 20px 0 40px;">
+            <div class="swiper testimonials-swiper" style="padding: 20px 0 40px;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="course-card" style="height: 100%;"><i class="fas fa-star"
@@ -710,19 +789,21 @@
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="course-card"><i class="fas fa-star" style="color: #FDB913;"></i>
+                        <div class="course-card" style="height: 100%;"><i class="fas fa-star"
+                                style="color: #FDB913;"></i>
                             <p>"NEET test series was on point. Scored 650+"</p>
                             <h4>— Priya Verma</h4>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="course-card"><i class="fas fa-star" style="color: #FDB913;"></i>
+                        <div class="course-card" style="height: 100%;"><i class="fas fa-star"
+                                style="color: #FDB913;"></i>
                             <p>"Coding batch gave me internship confidence."</p>
                             <h4>— Aditya Raj</h4>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-pagination testimonials-pagination"></div>
             </div>
         </section>
 
@@ -737,10 +818,16 @@
                     <a href="https://wa.me/917677107779?text=Hello%20Gyankunj%20Academy%2C%20I%20want%20to%20know%20about%20your%20available%20courses%2C%20fees%2C%20and%20batch%20timings."
                         target="_blank" class="btn-primary" style="margin-top: 20px;"><i class="fab fa-whatsapp"></i>
                         WhatsApp Us</a>
+
+
+
+
+
+
                 </div>
                 <div style="flex: 2; min-width: 280px;" class="map-container">
                     <iframe
-                        src="https://maps.google.com/maps?q=S.M%20College%20Rd%2C%20opposite%20combined%20building%2C%20Katahalbari%2C%20Khanjarpur%2C%20Bhagalpur%2C%20Bihar%20812001&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                        src="https://maps.google.com/maps?q=Gyankunj+Academy+:+%2B2+Institute+(For+JEE+%26+NEET),+Bhagalpur&t=&z=17&ie=UTF8&iwloc=&output=embed"
                         width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
@@ -757,12 +844,10 @@
 
                 <div>
                     <h4>Follow Us</h4>
-                    <a href="https://www.facebook.com/gyankunjbgp" target="_blank"
+                    <a href="https://www.facebook.com/share/1BKDnEcR47/" target="_blank"
                         style="color: inherit; text-decoration: none; margin-right: 10px;"><i
                             class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/gyankunjbgp?igsh=MWF3MGYzenV3ZmZ1Mw==" target="_blank"
-                        style="color: inherit; text-decoration: none; margin-right: 10px;"><i
-                            class="fab fa-instagram"></i></a>
+
                     <a href="#" style="color: inherit; text-decoration: none;"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
@@ -775,12 +860,20 @@
     <a href="https://wa.me/917677107779?text=Hello%20Gyankunj%20Academy%2C%20I%20want%20to%20know%20about%20your%20available%20courses%2C%20fees%2C%20and%20batch%20timings."
         target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
 
+    <!-- Instagram float -->
+    <a href="https://www.instagram.com/gyankunj_academy?igsh=MWg1dnBjY3o4NHR5" target="_blank" class="ig-float"><i
+            class="fab fa-instagram"></i></a>
+
+
+
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
-        const swiper = new Swiper('.swiper', { slidesPerView: 1, spaceBetween: 20, pagination: { el: '.swiper-pagination', clickable: true }, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } });
+        const testimonialsSwiper = new Swiper('.testimonials-swiper', { slidesPerView: 1, spaceBetween: 20, pagination: { el: '.testimonials-pagination', clickable: true }, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } });
+        const toppersSwiper = new Swiper('.toppers-swiper', { slidesPerView: 1, spaceBetween: 20, pagination: { el: '.toppers-pagination', clickable: true }, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 4 } } });
 
         // Dark mode toggle
         const themeToggle = document.getElementById('themeToggle');
